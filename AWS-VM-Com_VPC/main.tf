@@ -9,7 +9,7 @@ terraform {
   }
   backend "s3" {
     bucket = "creating-bucket-danielnfirmiano"
-    key    = "vpc/teraform.tfstate"
+    key    = "aws-vm/teraform.tfstate"
     region = "us-east-1"
   }
 }
@@ -24,3 +24,14 @@ provider "aws" {
     }
   }
 }
+
+data "terraform_remote_state" "vpc" {
+  backend = "s3"
+  config = {
+    bucket = "creating-bucket-danielnfirmiano"
+    key    = "vpc/teraform.tfstate"
+    region = "us-east-1"
+  }
+}
+
+# https://developer.hashicorp.com/terraform/language/settings/backends/s3
