@@ -45,4 +45,4 @@ resource "aws_instance" "vm" {
   }
 }
 
-# Criando chave = ssh-keygen -f aws-key
+# Criando chave = ssh-keygen -f aws-key ...
